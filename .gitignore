@@ -1,0 +1,8 @@
+# Ignore temp files
+*~
+
+# Ignore the directories containing the sqlite databases
+20**/
+
+# Ignore the database files
+*.db
