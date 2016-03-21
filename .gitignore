@@ -1,6 +1,9 @@
 # Ignore temp files
 *~
 
+# Ignore Rhistory file
+.Rhistory
+
 # Ignore the directories containing the sqlite databases
 20**/
 
