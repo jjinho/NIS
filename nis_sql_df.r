@@ -57,10 +57,13 @@ nis_sql_df <- function(year, inc_dx, exc_dx, inc_pr, exc_pr) {
 	} else {
 		key_list <- paste("(", toString(paste("'", core_df$KEY, "'", sep="")), ")", sep="")
 	}
-  nis_sev_query <- "SELECT * FROM severity_year_ WHERE KEY in list;"
+	if(year == 2012) {
+		nis_sev_query <- "SELECT * FROM severity_year_ WHERE KEY_NIS in list;"
+	} else {
+		nis_sev_query <- "SELECT * FROM severity_year_ WHERE KEY in list;"
+	}
   nis_sev_query <- gsub("year_", toString(year), nis_sev_query)
   nis_sev_query <- gsub("list", key_list, nis_sev_query)
-  
 	
 	# Perform the query
   q <- dbSendQuery(con, nis_sev_query)
